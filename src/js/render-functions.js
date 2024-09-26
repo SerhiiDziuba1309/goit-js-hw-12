@@ -1,9 +1,9 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-export const renderImages = images => {
+export function renderImages(images) {
   const gallery = document.querySelector('.gallery');
-  gallery.innerHTML = images
+  const markup = images
     .map(
       ({
         webformatURL,
@@ -28,22 +28,32 @@ export const renderImages = images => {
         `
     )
     .join('');
-};
 
-export const showError = message => {
+  gallery.insertAdjacentHTML('beforeend', markup);
+}
+
+export function clearGallery() {
+  document.querySelector('.gallery').innerHTML = '';
+}
+
+export function showError(message) {
   iziToast.error({
     title: 'Error',
     message,
   });
-};
+}
 
-export const showLoader = () => {
-  const loader = document.querySelector('.loader');
-  loader.innerHTML = '<div class="spinner"></div>';
-  loader.style.display = 'flex';
-};
+export function showEndMessage() {
+  iziToast.info({
+    title: 'End of Results',
+    message: "We're sorry, but you've reached the end of search results.",
+  });
+}
 
-export const hideLoader = () => {
-  const loader = document.querySelector('.loader');
-  loader.style.display = 'none';
-};
+export function showLoader() {
+  document.querySelector('.loader').style.display = 'flex';
+}
+
+export function hideLoader() {
+  document.querySelector('.loader').style.display = 'none';
+}

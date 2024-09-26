@@ -1,11 +1,11 @@
 {
-  "name": "goit-js-hw-11",
+  "name": "goit-js-hw-12",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "vite build --base=/goit-js-hw-11/",
+    "build": "vite build --base=/goit-js-hw-12/",
     "dev": "vite"
   },
   "devDependencies": {
